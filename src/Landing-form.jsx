@@ -17,7 +17,7 @@ const LandingForm = () => {
   const [email, setEmail] = useState("");
   const [terms, setTerms] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (company === "") {
       alert("te falta llenar el nombre de tu compañia");
@@ -32,14 +32,26 @@ const LandingForm = () => {
       alert("Tienes que escoger alguna de las dos casillas");
     }
 
-    axios
-      .post("https://hooks.zapier.com/hooks/catch/666990/blqeo0s/", {
-        company: company,
-        name: name,
-        email: email,
-        terms: terms,
-      })
-      .then((res) => console.log(res));
+    const body = {
+      company: "company",
+      name: "name",
+      email: "email",
+      terms: "terms",
+    };
+
+    const res = await fetch(
+      "https://hooks.zapier.com/hooks/catch/666990/blqeo0s/",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          body,
+        }),
+      }
+    );
   };
 
   console.log(terms);
