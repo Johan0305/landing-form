@@ -58,9 +58,20 @@ const LandingForm = () => {
     return handleForm();
   };
 
+  console.log(terms);
+
   return (
     <>
-      <Modal opened={modal} onClose={() => setModal(false)}>
+      <Modal
+        opened={modal}
+        onClose={() => {
+          setCompany("");
+          setName("");
+          setEmail("");
+          setTerms("");
+          window.location.href = "https://documentcloudforbusiness.com/";
+        }}
+      >
         <div className="info-modal">
           <img src={AdobeLg} alt="adobelogo" width={166} />
           <p>Muchas gracias, recibimos tus datos con éxito.</p>
