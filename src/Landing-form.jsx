@@ -1,18 +1,48 @@
 import React from "react";
 import { useState } from "react";
 import Banner from "./assets/banner.png";
-import { Checkbox } from "@mantine/core";
+import { Radio } from "@mantine/core";
+import Face from "./assets/face-icon.png";
+import Insta from "./assets/insta-icon.png";
+import Ldin from "./assets/linkedin-icon.png";
+import Youtube from "./assets/you-icon.png";
+import Twit from "./assets/icon-twitter.png";
+import AdobeLg from "./assets/logo Adobe.png";
+import Calendar from "./assets/calendar.png";
+import axios from "axios";
 
 const LandingForm = () => {
   const [company, setCompany] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [terms, setTerms] = useState(false);
+  const [terms, setTerms] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(company, name, email);
+    if (company === "") {
+      alert("te falta llenar el nombre de tu compañia");
+    }
+    if (name === "") {
+      alert("No sabemos tu nombre!");
+    }
+    if (email === "") {
+      alert("Hace falta un email");
+    }
+    if (terms === "") {
+      alert("Tienes que escoger alguna de las dos casillas");
+    }
+
+    axios
+      .post("https://hooks.zapier.com/hooks/catch/666990/blqeo0s/", {
+        company: company,
+        name: name,
+        email: email,
+        terms: terms,
+      })
+      .then((res) => console.log(res));
   };
+
+  console.log(terms);
   return (
     <div id="App">
       <header>
@@ -60,9 +90,9 @@ const LandingForm = () => {
               </div>
 
               <div className="terms-and-conditions">
-                <div className="adobe-cover adobe-terms">
+                <div className="adobe-terms">
                   <ul>
-                    <h3>Lo que Adobe cubre:</h3>
+                    <p>Lo que Adobe cubre:</p>
                     <li className="points">
                       2 noches de hotel durante el entrenamiento, solo a las
                       personas fuera de la ciudad y los invitados que vienen de
@@ -79,10 +109,9 @@ const LandingForm = () => {
                     <li className="points">Almuerzos (Día 1 y Día 2).</li>
                     <li className="points">Coctel (Día 1).</li>
                   </ul>
-                </div>
-                <div className="adobe-no-cover adobe-terms">
+
                   <ul>
-                    <h3>Lo que Adobe no cubrirá:</h3>
+                    <p>Lo que Adobe no cubrirá:</p>
                     <li className="points">
                       Tiquetes aéreos (en caso de que aplique), serán
                       responsabilidad de la empresa.
@@ -95,11 +124,11 @@ const LandingForm = () => {
                       entrenamiento.
                     </li>
                     <li className="points">
-                      el consumo del minibar de las habitaciones.
+                      El consumo del minibar de las habitaciones.
                     </li>
                     <li className="points">
-                      los servicios de lavandería o adicionales serán pagados
-                      por el huésped
+                      Los servicios de lavandería o adicionales serán pagados
+                      por el huésped.
                     </li>
                     <li className="points">
                       No nos haremos responsables de cualquier cambio solicitado
@@ -108,31 +137,76 @@ const LandingForm = () => {
                     </li>
                     <li className="points">
                       Las cenas, comidas o aperitivos que se pidan a través del
-                      servicio de "Room Service", serán cubiertos por el huesped
+                      servicio de "Room Service", serán cubiertos por el
+                      huesped.
                     </li>
                   </ul>
-                  <div className="checkbox">
-                    <label htmlFor="checkbox">
-                      Estoy de acuerdo con los términos y condiciones
-                    </label>
-                    <Checkbox color="red" radius="md" size="md" />
+                  <div className="button-and-checkbox">
+                    <div className="checkbox">
+                      <Radio.Group
+                        offset="sm"
+                        size="sm"
+                        withAsterisk
+                        orientation="vertical"
+                        value={terms}
+                        onChange={setTerms}
+                      >
+                        <Radio
+                          value="Yes"
+                          label="Si, acepto las condiciones para participar."
+                          color="red"
+                        />
+                        <Radio
+                          value="No"
+                          color="red"
+                          label="No podré participar, muchas gracias por la invitación."
+                        />
+                      </Radio.Group>
+                    </div>
+
+                    <div className="button-submit">
+                      <button type="submit">Enviar</button>
+                    </div>
                   </div>
-                  <div
-                    onClick={(value) => {
-                      console.log(value);
-                    }}
-                  >
-                    Reserva tu agenda
-                  </div>
-                  <button type="submit">Enviar</button>
                 </div>
               </div>
             </form>
-            <h2>¡Acrobat lo resuelve!</h2>
+            <h2 className="acrobat-resolve">¡Acrobat lo resuelve!</h2>
           </div>
         </div>
       </main>
-      <footer></footer>
+      <footer>
+        <div className="icons">
+          <img src={AdobeLg} alt="Adobe" width={130} />
+          <div className="social-networks">
+            <a
+              href="https://www.facebook.com/adobelatinoamerica"
+              target="_blank"
+            >
+              <img src={Face} alt="Facebook" width={27} height={27} />
+            </a>
+
+            <a href="https://www.instagram.com/adobe_lat/" target="_blank">
+              <img src={Insta} alt="Instagram" width={27} height={27} />
+            </a>
+
+            <a href="https://www.linkedin.com/company/adobe/" target="_blank">
+              <img src={Ldin} alt="Linkedin" width={27} height={27} />
+            </a>
+
+            <a
+              href="https://www.youtube.com/c/adobelatinoamericaoficial"
+              target="_blank"
+            >
+              <img src={Youtube} alt="Youtube" width={27} height={27} />
+            </a>
+
+            <a href="https://twitter.com/AdobeLat" target="_blank">
+              <img src={Twit} alt="twitter" width={27} height={27} />
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

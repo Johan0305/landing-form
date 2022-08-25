@@ -9,7 +9,7 @@
 
 #App {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   header {
     width: 100%;
@@ -21,7 +21,6 @@
   main {
     .box-form-landing {
       display: flex;
-
       justify-content: center;
 
       .form-landing {
@@ -36,6 +35,7 @@
           display: flex;
           flex-direction: column;
           width: 100%;
+          border-bottom: 1px solid #fa0f00;
 
           .form-and-extra-info {
             display: flex;
@@ -61,49 +61,179 @@
                 min-width: 175px;
                 border-radius: 5px;
                 padding-left: 5px;
-                border: 1px solid black;
-                box-shadow: 0px 5px 5px rgba(43, 45, 48);
+                border: 1px solid #e5e5e5;
+                box-shadow: 0px 3px 5px rgba(43, 45, 48);
+                background-color: #e5e5e5;
               }
 
               input:focus {
                 outline: 1px solid #fa0f00;
                 border-color: transparent;
               }
+              input:hover {
+                transform: scale(1.009);
+              }
             }
           }
 
           ul {
             list-style-position: inside;
+            p {
+              font-size: 1.6em;
+              font-weight: bold;
+              color: #fa0f00;
+            }
+            li {
+              font-size: 1.1em;
+            }
             .points::marker {
               color: #fa0f00;
               font-size: 1.5em;
             }
           }
 
-          .adobe-terms {
+          .terms-and-conditions {
+            display: flex;
+            width: 100%;
+            padding-top: 5%;
+            justify-content: center;
+            .adobe-terms {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              width: 80%;
+              justify-content: center;
+              gap: 30px;
+            }
+            .checkbox {
+              display: flex;
+              min-width: 300px;
+              justify-content: center;
+              gap: 10px;
+              .checkbox-native:hover {
+                transform: scale(1.009);
+              }
+            }
+          }
+          .button-and-checkbox {
             display: flex;
             flex-direction: column;
-            align-items: center;
             width: 100%;
-            justify-content: center;
-          }
-
-          .checkbox {
-            display: flex;
-            min-width: 300px;
             justify-content: space-between;
-            gap: 10px;
+            height: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+            gap: 30px;
+            .button-submit {
+              height: 100%;
+              button {
+                cursor: pointer;
+                color: #ffff;
+                background-color: #fa0f00;
+                border-color: transparent;
+                font-size: 1.1em;
+                border-radius: 5px;
+                width: 20%;
+                min-width: 66px;
+                height: 30px;
+                box-shadow: 0px 3px 5px rgb(39, 37, 37);
+              }
+              button:hover {
+                box-shadow: 0px 0px 0px rgb(39, 37, 37);
+                color: #fa0f00;
+                border: 1px solid #fa0f00;
+                background-color: #ffff;
+                opacity: 0.8;
+              }
+            }
+
+            .agenda {
+              display: flex;
+              justify-content: center;
+              align-content: center;
+              width: 100%;
+              gap: 10px;
+              .text-agenda {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                p {
+                  cursor: pointer;
+                  font-size: 1.2em;
+                  font-weight: bolder;
+                  text-shadow: 0px 2px 6px rgb(86, 82, 82);
+                  text-align: center;
+                }
+              }
+            }
+            .agenda:hover {
+              transform: scale(1.05);
+            }
           }
         }
+
         h2 {
+          padding: 40px 0px;
           text-align: center;
+          color: #fa0f00;
+          font-weight: bolder;
         }
       }
     }
   }
   footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    height: 20%;
-    background-color: aquamarine;
+    height: 180px;
+    border-top: 5px solid #fa0f00;
+    background-color: #e5e5e5;
+    justify-content: space-around;
+    .icons {
+      display: flex;
+      width: 88%;
+      justify-content: space-between;
+      .social-networks {
+        display: flex;
+        gap: 10px;
+        a:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+    .more-adobe {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      p {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 15%;
+        height: 40px;
+        align-items: center;
+      }
+      .left-text-footer {
+        border-right: 2px solid #a9a9a9;
+      }
+      .right-text-footer {
+        border-left: 2px solid #a9a9a9;
+      }
+
+      a:link {
+        color: black;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #5783cf;
+      }
+      .direction {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 0px 5px;
+      }
+    }
   }
 }
