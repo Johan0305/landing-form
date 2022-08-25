@@ -237,3 +237,16 @@
     }
   }
 }
+
+.info-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  p {
+    text-align: center;
+  }
+  .cooming-soon {
+    margin-bottom: 20px;
+  }
+}
