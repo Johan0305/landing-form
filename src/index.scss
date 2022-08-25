@@ -1,15 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Varela Round", sans-serif;
 }
 
 #App {
   width: 100%;
   height: 100vh;
+
   header {
     width: 100%;
+
     img {
       width: 100%;
     }
@@ -17,48 +21,89 @@
   main {
     .box-form-landing {
       display: flex;
+
       justify-content: center;
+
       .form-landing {
         display: flex;
+        flex-direction: column;
         width: 88%;
         height: 100%;
-        padding: 0px 7%;
-        background-color: aqua;
+        padding: 0px;
         padding-top: 50px;
+
         form {
           display: flex;
+          flex-direction: column;
           width: 100%;
+
           .form-and-extra-info {
             display: flex;
             flex-direction: column;
             gap: 20px;
             width: 100%;
+            min-width: 950px;
+
             .form-input {
               display: flex;
               justify-content: space-between;
-
               width: 100%;
 
               label {
                 font-weight: bolder;
                 font-size: 1.6em;
               }
+
               input {
                 font-weight: 400;
                 font-size: 1.6em;
                 width: 70%;
+                min-width: 175px;
+                border-radius: 5px;
+                padding-left: 5px;
+                border: 1px solid black;
+                box-shadow: 0px 5px 5px rgba(43, 45, 48);
               }
-            }
-            .extra-info {
-              ul {
-                li::marker {
-                  color: #fa0f00;
-                }
+
+              input:focus {
+                outline: 1px solid #fa0f00;
+                border-color: transparent;
               }
             }
           }
+
+          ul {
+            list-style-position: inside;
+            .points::marker {
+              color: #fa0f00;
+              font-size: 1.5em;
+            }
+          }
+
+          .adobe-terms {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            justify-content: center;
+          }
+
+          .checkbox {
+            display: flex;
+            min-width: 300px;
+            justify-content: space-between;
+            gap: 10px;
+          }
+        }
+        h2 {
+          text-align: center;
         }
       }
     }
+  }
+  footer {
+    width: 100%;
+    height: 20%;
+    background-color: aquamarine;
   }
 }
