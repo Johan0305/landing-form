@@ -39,28 +39,6 @@ const LandingForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (company === "") {
-      alert("Te falta llenar el nombre de tu compañia");
-      return;
-    }
-    if (name === "") {
-      alert("No sabemos tu nombre!");
-      return;
-    }
-    if (email === "") {
-      alert("Hace falta un email");
-      return;
-    }
-    if (country === "") {
-      alert("No sabemos de que país eres!");
-      return;
-    }
-    if (terms === "") {
-      alert("Tienes que escoger alguna de las dos casillas");
-      return;
-    }
-
     return handleForm();
   };
 
@@ -96,42 +74,64 @@ const LandingForm = () => {
             <div className="form-landing">
               <form onSubmit={handleSubmit}>
                 <div className="form-and-extra-info">
-                  <div className="form-input">
-                    <label htmlFor="empresa">Empresa:</label>
-                    <input
-                      type="text"
-                      autoComplete="on"
-                      value={company}
-                      onChange={(e) => setCompany(e.target.value)}
-                    />
+                  <div className="container-form-inputs">
+                    <div className="form-input">
+                      <label htmlFor="empresa">Empresa:</label>
+                      <input
+                        type="text"
+                        autoComplete="on"
+                        value={company}
+                        required
+                        onChange={(e) => setCompany(e.target.value)}
+                      />
+                    </div>
+                    <div className="form-input">
+                      <label htmlFor="Nombre completo">Nombre Completo:</label>
+                      <input
+                        type="text"
+                        autoComplete="on"
+                        value={name}
+                        required
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </div>
+                    <div className="form-input">
+                      <label htmlFor="Email">Correo Electrónico:</label>
+                      <input
+                        type="email"
+                        autoComplete="on"
+                        value={email}
+                        required
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                    </div>
+                    <div className="form-input">
+                      <label htmlFor="Select">País:</label>
+                      <select
+                        name="countrys"
+                        onChange={(e) => setCountry(String(e.target.value))}
+                        required
+                      >
+                        <option value="">Escoge tu país</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="Costa Rica">Costa Rica</option>
+                        <option value="República Dominicana">
+                          República Dominicana
+                        </option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="Panamá">Panamá</option>
+                        <option value="Puerto Rico">Puerto Rico</option>
+                        <option value="Salvador">Salvador</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Perú">Perú</option>
+                        <option value="Paraguay">Paraguay</option>
+                        <option value="Uruguay">Uruguay</option>
+                        <option value="México">México</option>
+                      </select>
+                    </div>
                   </div>
-                  <div className="form-input">
-                    <label htmlFor="Nombre completo">Nombre Completo:</label>
-                    <input
-                      type="text"
-                      autoComplete="on"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                  </div>
-                  <div className="form-input">
-                    <label htmlFor="Email">Correo Electrónico:</label>
-                    <input
-                      type="email"
-                      autoComplete="on"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </div>
-                  <div className="form-input">
-                    <label htmlFor="País">País:</label>
-                    <input
-                      type="text"
-                      autoComplete="on"
-                      value={country}
-                      onChange={(e) => setCountry(e.target.value)}
-                    />
-                  </div>
+
                   <div className="extra-info">
                     <ul>
                       <li className="points">
