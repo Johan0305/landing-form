@@ -39,6 +39,11 @@ const LandingForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (terms === "") {
+      alert("Debes escoger si aceptas o no los términos");
+      return;
+    }
     return handleForm();
   };
 
