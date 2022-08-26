@@ -15,6 +15,7 @@ const LandingForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [terms, setTerms] = useState("");
+  const [country, setCountry] = useState("");
 
   const [modal, setModal] = useState(false);
 
@@ -24,6 +25,7 @@ const LandingForm = () => {
     formdata.append("company", company);
     formdata.append("name", name);
     formdata.append("email", email);
+    formdata.append("country", country);
     formdata.append("terms", terms);
 
     axios
@@ -39,7 +41,7 @@ const LandingForm = () => {
     e.preventDefault();
 
     if (company === "") {
-      alert("te falta llenar el nombre de tu compañia");
+      alert("Te falta llenar el nombre de tu compañia");
       return;
     }
     if (name === "") {
@@ -48,6 +50,10 @@ const LandingForm = () => {
     }
     if (email === "") {
       alert("Hace falta un email");
+      return;
+    }
+    if (country === "") {
+      alert("No sabemos de que país eres!");
       return;
     }
     if (terms === "") {
@@ -95,6 +101,7 @@ const LandingForm = () => {
                     <input
                       type="text"
                       autoComplete="on"
+                      value={company}
                       onChange={(e) => setCompany(e.target.value)}
                     />
                   </div>
@@ -103,6 +110,7 @@ const LandingForm = () => {
                     <input
                       type="text"
                       autoComplete="on"
+                      value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
                   </div>
@@ -111,7 +119,17 @@ const LandingForm = () => {
                     <input
                       type="email"
                       autoComplete="on"
+                      value={email}
                       onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-input">
+                    <label htmlFor="País">País:</label>
+                    <input
+                      type="text"
+                      autoComplete="on"
+                      value={country}
+                      onChange={(e) => setCountry(e.target.value)}
                     />
                   </div>
                   <div className="extra-info">
@@ -141,7 +159,7 @@ const LandingForm = () => {
                       </li>
                       <li className="points">Alimentos:</li>
                     </ul>
-                    <ul>
+                    <ul className="foods">
                       <li className="points">Coffee Breaks (Día 1 y Día 2).</li>
                       <li className="points">Almuerzos (Día 1 y Día 2).</li>
                       <li className="points">Coctél (Día 1).</li>
