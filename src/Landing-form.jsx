@@ -9,6 +9,8 @@ import Youtube from "./assets/you-icon.png";
 import Twit from "./assets/icon-twitter.png";
 import AdobeLg from "./assets/logo Adobe.png";
 import axios from "axios";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 const LandingForm = () => {
   const [company, setCompany] = useState("");
@@ -26,6 +28,10 @@ const LandingForm = () => {
     const utms = window.location.search.substring(1).split("&");
 
     const arr = utms.map((utm) => utm.split("="));
+
+    if (arr.length !== 3) {
+      return undefined;
+    }
 
     setCampaign(arr[0][1]);
     setSource(arr[1][1]);
@@ -56,8 +62,10 @@ const LandingForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const notify = () => toast("Wow so easy!");
+
     if (terms === "") {
-      alert("Debes escoger si aceptas o no los términos");
+      alert("Debes elegir una opción en términos y condiciones.");
       return;
     }
     return handleForm();
@@ -183,7 +191,7 @@ const LandingForm = () => {
                     <ul className="foods">
                       <li className="points">Coffee Breaks (Día 1 y Día 2).</li>
                       <li className="points">Almuerzos (Día 1 y Día 2).</li>
-                      <li className="points">Coctél (Día 1).</li>
+                      <li className="points">Cóctel (Día 1).</li>
                     </ul>
 
                     <ul>
