@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import Banner from "./assets/banner.png";
 import { Radio, Modal } from "@mantine/core";
@@ -16,8 +16,21 @@ const LandingForm = () => {
   const [email, setEmail] = useState("");
   const [terms, setTerms] = useState("");
   const [country, setCountry] = useState("");
+  const [source, setSource] = useState("");
+  const [medium, setMedium] = useState("");
+  const [campaign, setCampaign] = useState("");
 
   const [modal, setModal] = useState(false);
+
+  useEffect(() => {
+    const utms = window.location.search.substring(1).split("&");
+
+    const arr = utms.map((utm) => utm.split("="));
+
+    setCampaign(arr[0][1]);
+    setSource(arr[1][1]);
+    setMedium(arr[2][1]);
+  }, []);
 
   const handleForm = () => {
     const formdata = new FormData();
@@ -27,6 +40,9 @@ const LandingForm = () => {
     formdata.append("email", email);
     formdata.append("country", country);
     formdata.append("terms", terms);
+    formdata.append("utm_campaign", campaign);
+    formdata.append("utm_source", source);
+    formdata.append("utm_medium", medium);
 
     axios
       .post("https://hooks.zapier.com/hooks/catch/666990/blqeo0s/", formdata)
@@ -221,7 +237,12 @@ const LandingForm = () => {
                           />
                         </Radio.Group>
                       </div>
-
+                      <div>
+                        <small className="contact">
+                          Si tienes alguna pregunta, no dudes en contactarte con
+                          tu equipo de marketing local.
+                        </small>
+                      </div>
                       <div className="button-submit">
                         <button type="submit">Enviar</button>
                       </div>
