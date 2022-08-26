@@ -142,9 +142,9 @@ const LandingForm = () => {
                       <li className="points">Alimentos:</li>
                     </ul>
                     <ul>
-                      <li className="points">Coffe Breaks (Día 1 y Día 2).</li>
+                      <li className="points">Coffee Breaks (Día 1 y Día 2).</li>
                       <li className="points">Almuerzos (Día 1 y Día 2).</li>
-                      <li className="points">Coctel (Día 1).</li>
+                      <li className="points">Coctél (Día 1).</li>
                     </ul>
 
                     <ul>
@@ -168,14 +168,12 @@ const LandingForm = () => {
                         por el huésped.
                       </li>
                       <li className="points">
-                        No nos haremos responsables de cualquier cambio
-                        solicitado en la habitación para las personas que se
-                        quedan en el hotel.
+                        Cualquier cambio solicitado en la habitación para las
+                        personas que se quedan en el hotel.
                       </li>
                       <li className="points">
                         Las cenas, comidas o aperitivos que se pidan a través
-                        del servicio de "Room Service", serán cubiertos por el
-                        huesped.
+                        del servicio de "Room Service".
                       </li>
                     </ul>
                     <div className="button-and-checkbox">
