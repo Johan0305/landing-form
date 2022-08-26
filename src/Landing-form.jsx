@@ -62,8 +62,6 @@ const LandingForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const notify = () => toast("Wow so easy!");
-
     if (terms === "") {
       alert("Debes elegir una opción en términos y condiciones.");
       return;
@@ -201,7 +199,7 @@ const LandingForm = () => {
                         responsabilidad de la empresa.
                       </li>
                       <li className="points">
-                        Transporte, aeropuerto - hotel - aeropuerto.
+                        Transporte aeropuerto - hotel - aeropuerto.
                       </li>
                       <li className="points">
                         Alimentos y bebidas adicionales fuera de las horas del
@@ -211,8 +209,8 @@ const LandingForm = () => {
                         El consumo del minibar de las habitaciones.
                       </li>
                       <li className="points">
-                        Los servicios de lavandería o adicionales serán pagados
-                        por el huésped.
+                        Los servicios de lavandería o adicionales solicitados
+                        por el huesped.
                       </li>
                       <li className="points">
                         Cualquier cambio solicitado en la habitación para las
@@ -235,7 +233,7 @@ const LandingForm = () => {
                         >
                           <Radio
                             value="Yes"
-                            label="Si, acepto las condiciones para participar."
+                            label="Sí, acepto las condiciones para participar."
                             color="red"
                           />
                           <Radio
