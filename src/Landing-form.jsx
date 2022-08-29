@@ -9,8 +9,6 @@ import Youtube from "./assets/you-icon.png";
 import Twit from "./assets/icon-twitter.png";
 import AdobeLg from "./assets/logo Adobe.png";
 import axios from "axios";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
 
 const LandingForm = () => {
   const [company, setCompany] = useState("");
@@ -23,6 +21,23 @@ const LandingForm = () => {
   const [campaign, setCampaign] = useState("");
 
   const [modal, setModal] = useState(false);
+
+  const countrys = [
+    "Argentina",
+    "Chile",
+    "Colombia",
+    "Costa Rica",
+    "Ecuador",
+    "Guatemala",
+    "México",
+    "Panamá",
+    "Paraguay",
+    "Perú",
+    "Puerto Rico",
+    "República Dominicana",
+    "Salvador",
+    "Uruguay",
+  ];
 
   useEffect(() => {
     const utms = window.location.search.substring(1).split("&");
@@ -140,21 +155,9 @@ const LandingForm = () => {
                         required
                       >
                         <option value="">Escoge tu país</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="Costa Rica">Costa Rica</option>
-                        <option value="República Dominicana">
-                          República Dominicana
-                        </option>
-                        <option value="Guatemala">Guatemala</option>
-                        <option value="Panamá">Panamá</option>
-                        <option value="Puerto Rico">Puerto Rico</option>
-                        <option value="Salvador">Salvador</option>
-                        <option value="Colombia">Colombia</option>
-                        <option value="Argentina">Argentina</option>
-                        <option value="Perú">Perú</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="México">México</option>
+                        {countrys.map((ctry) => (
+                          <option value={ctry}>{ctry}</option>
+                        ))}
                       </select>
                     </div>
                   </div>
